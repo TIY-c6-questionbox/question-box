@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+
+
 import dj_database_url
 
 SECRET_KEY = os.environ.get('QUESTION_SECRET_KEY')
@@ -96,10 +98,11 @@ AUTH_PASSWORD_VALIDATORS = (
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
 
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
