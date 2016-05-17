@@ -2,6 +2,6 @@ venv
 *.pyc
 staticfiles
 questionbox/secrets.py
-.DS_Store
+.direnv/
 .envrc
-.direnv
+.DS_Store
