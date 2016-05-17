@@ -4,3 +4,4 @@ staticfiles
 questionbox/secrets.py
 .direnv/
 .envrc
+.DS_Store
