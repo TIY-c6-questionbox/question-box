@@ -100,6 +100,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = "iqcr-l!-7ea=+3y@r(08=)#97uib!vs17^xo@3t8ecyhuhzi%$"
+
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES = {'default': {}}
