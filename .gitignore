@@ -2,3 +2,5 @@ venv
 *.pyc
 staticfiles
 questionbox/secrets.py
+.direnv/
+.envrc
