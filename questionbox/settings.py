@@ -10,8 +10,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-from .secrets import *
+# from .secrets import *
 import dj_database_url
+
+SECRET_KEY = "iqcr-l!-7ea=+3y@r(08=)#97uib!vs17^xo@3t8ecyhuhzi%$"
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
