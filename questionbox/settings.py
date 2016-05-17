@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from .secrets import *
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -20,22 +21,27 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "iqcr-l!-7ea=+3y@r(08=)#97uib!vs17^xo@3t8ecyhuhzi%$"
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # Application definition
 
 INSTALLED_APPS = (
+    'questionboard.apps.QuestionboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework'
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10
+}
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -69,16 +75,6 @@ TEMPLATES = (
 
 WSGI_APPLICATION = 'questionbox.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 AUTH_PASSWORD_VALIDATORS = (
     {
