@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-{% load static %}
+
+{% load staticfiles %}
+{%block content%}
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css"></link>
+
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css"></link>
     <meta charset="utf-8">
     <title>QuestionBoard</title>
   </head>
@@ -39,3 +42,4 @@
     <script src="static/js/main.js"></script>
   </body>
 </html>
+{% endblock %}
