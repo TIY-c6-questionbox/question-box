@@ -1,17 +1,30 @@
 from django.contrib.auth.models import User
-from django.db import models
 from rest_framework import serializers
 from .models import Answer, Question
 
 
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
+    # owner = serializers.ReadOnlyField(source='owner.username')
+
     class Meta:
-    model = Question
-    fields = ('url', 'answer', 'owner', 'created', 'title', 'description')
+        model = Question
+        fields = ('url', 'answer', 'owner', 'created', 'title', 'description')
 
 
+class AnswerSerializer(serializers.HyperlinkedModelSerializer):
+    # owner = serializers.ReadOnlyField(source='owner.username')
 
-class TaskSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-    model = Answer
-    fields = ('url', 'owner', 'created', 'text', 'score')
+        model = Answer
+        fields = ('url', 'owner', 'created', 'text', 'score')
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    # questions = serializers.PrimaryKeyRelatedField(
+    #         many=True, queryset=Question.objects.all())
+    # answers = serializers.PrimaryKeyRelatedField(
+    #         many=True, queryset=Answer.objects.all())
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'questions', 'answers')
