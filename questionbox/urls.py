@@ -3,7 +3,6 @@ from django.contrib import admin
 from rest_framework.routers import DefaultRouter
 from questionboard import views
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.models import User
 
 
 router = DefaultRouter()
