@@ -13,7 +13,6 @@ router.register(r'users', views.UserViewSet)
 urlpatterns = [
     # Examples:
     # url(r'^blog/', include('blog.urls')),
-    url(r'^index.html', views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(router.urls)),
     url(r'^accounts/', include('registration.backends.simple.urls')),
