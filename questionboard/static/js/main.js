@@ -1,6 +1,46 @@
+var $questions = $('#questions');
+
+$.get('http://localhost:8000/questions/', function(questions){
+    if (questions.results != undefined) {
+        questions.results.forEach(for_function);
+    }
+})
+
+function for_function(question) {
+        console.log(question);
+        var $li = $('<li>');
+        $li.text(question.title);
+        $li.appendTo($questions);
+}
+
 var $question = $('#question');
-var $questiontext = $('#questiontext');
+var $textarea = $('#textarea');
 var $answertext = $('#answertext');
+
+$task.submit(function() {
+  console.log('Form submitted!');
+
+  $.ajax({
+    method: 'POST',
+    url: 'http://localhost:8000/question/',
+    beforeSend: function(request) {
+        var token = document.cookie.replace('csrftoken=', '')
+        request.setRequestHeader('X-CSRFToken', token)
+    },
+    data: {
+      title: $question.val(),
+      description: $textarea.val(),
+    },
+    success: function(newQuestion) {
+      console.log(newQuestion)
+      var $li = $('<li>');
+      $li.text(newQuestion.name)
+      $li.appendTo($questions);
+    }
+  });
+
+  return false;
+});
 
 
 function getQuestions() {
@@ -58,10 +98,10 @@ function createCreateQuestionForm() {
     var title = $('<input type="text" id="title"><br>').appendTo(form)
 
 
-    $('<input type="submit" value="Create Question">').appentTo(form)
+    $('<input type="submit" value="Create Question">').appendTo(form)
 
     createQuestionForm.submit(function() {
-        console.log('Task created')
+        console.log('Question created')
         return false;
     })
     createQuestionForm.appendTo(document.body)
