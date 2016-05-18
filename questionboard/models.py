@@ -12,7 +12,6 @@ class Answer(models.Model):
 
 
 class Question(models.Model):
-    answer = models.ForeignKey('Answer', default=1)
     owner = models.ForeignKey('auth.User', default=1)
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=255, blank=True, default='')

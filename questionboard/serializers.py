@@ -8,7 +8,7 @@ class QuestionSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Question
-        fields = ('url', 'answer', 'owner', 'created', 'title', 'description')
+        fields = ('url', 'owner', 'created', 'title', 'description')
 
 
 class AnswerSerializer(serializers.HyperlinkedModelSerializer):

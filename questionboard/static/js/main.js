@@ -1,6 +1,6 @@
-var $questions = $('#questions');
+// var $questions = $('#questions');
 
-$.get('http://localhost:8000/questions/', function(questions){
+$.get('/question/', function(questions){
     if (questions.results != undefined) {
         questions.results.forEach(for_function);
     }
@@ -13,16 +13,18 @@ function for_function(question) {
         $li.appendTo($questions);
 }
 
+var $questionform = $('#questionform');
 var $question = $('#question');
 var $textarea = $('#textarea');
 var $answertext = $('#answertext');
 
-$task.submit(function() {
+$questionform.submit(function() {
   console.log('Form submitted!');
+
 
   $.ajax({
     method: 'POST',
-    url: 'http://localhost:8000/question/',
+    url: '/question/',
     beforeSend: function(request) {
         var token = document.cookie.replace('csrftoken=', '')
         request.setRequestHeader('X-CSRFToken', token)
@@ -35,7 +37,7 @@ $task.submit(function() {
       console.log(newQuestion)
       var $li = $('<li>');
       $li.text(newQuestion.name)
-      $li.appendTo($questions);
+      $li.appendTo($questionform);
     }
   });
 
@@ -44,7 +46,7 @@ $task.submit(function() {
 
 
 function getQuestions() {
-    $.get('/question', function(questions) {
+    $.get('/question/', function(questions) {
         var results = questions.results;
         var question = null;
 
@@ -70,22 +72,22 @@ function getQuestions() {
 }
 
 
-function deleteQuestion(questionID) {
-    $.ajax({
-        method: 'DELETE',
-        url: '/question/' + questionID + '/',
-        beforeSend: function(request) {
-            var token = document.cookie.replace('csrftoken=', '')
-            request.setRequestHeader('X-CSRFToken', token)
-        }
-        success: function() {
-            var $question = $('.question[data-id=' + questionID + ']')
-            console.log('Question deleted', $question)
-            $question.remove();
-        }
-    })
-
-}
+// function deleteQuestion(questionID) {
+//     $.ajax({
+//         method: 'DELETE',
+//         url: '/question/' + questionID + '/',
+//         beforeSend: function(request) {
+//             var token = document.cookie.replace('csrftoken=', '')
+//             request.setRequestHeader('X-CSRFToken', token)
+//         }
+//         success: function() {
+//             var $question = $('.question[data-id=' + questionID + ']')
+//             console.log('Question deleted', $question)
+//             $question.remove();
+//         }
+//     })
+//
+// }
 
 
 function createCreateQuestionForm() {
