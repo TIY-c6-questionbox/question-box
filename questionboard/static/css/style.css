@@ -1,3 +1,19 @@
 body {
-  background-color: grey;
+  background-color:silver;
+}
+
+#textarea {
+  width: 250px;
+  height: 150px;
+}
+
+input{
+  font-size: 16px;
+  margin: 5px;
+}
+
+#list{
+  position: absolute;
+  top: 30px;
+  right: 50px;
 }
