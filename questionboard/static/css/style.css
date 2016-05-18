@@ -1,3 +1,13 @@
 body {
   background-color: grey;
 }
+
+#textarea {
+  width: 250px;
+  height: 150px;
+}
+
+input{
+  font-size: 16px;
+  margin: 5px;
+}
