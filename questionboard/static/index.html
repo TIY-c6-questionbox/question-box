@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-{% load static %}
+
 <html>
+{ % load static % }
   <head>
     <meta charset="utf-8">
     <title>QuestionBoard</title>
@@ -12,6 +13,7 @@
         <input id='question' type="text" name="question" value=""><br>
       <label for="">Description:</label><br>
         <input id='questiontext' type="text" name="description" value=""><br>
+      <input id="button" type="submit" value="Submit Question">
     </form>
 
     <form action="index.html" method="post">
@@ -19,6 +21,7 @@
         <label for="">Question</label>
         <label for="">Answer:</label>
           <input id='answertext' type="text" name="answer" value=""><br>
+        <input id="button" type="submit" value="Submit Answer">
     </form>
   </body>
 </html>
