@@ -1,3 +1,4 @@
+# from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -19,3 +20,8 @@ class Question(models.Model):
 
     class Meta:
         ordering = ('created', )
+
+
+# class Profile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     score = models.IntegerField(default=0)
