@@ -16,7 +16,7 @@ class AnswerSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Answer
-        fields = ('url', 'owner', 'created', 'text', 'score')
+        fields = ('url', 'owner', 'created', 'text', 'score', 'question')
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
