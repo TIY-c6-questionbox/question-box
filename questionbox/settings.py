@@ -15,7 +15,6 @@ import os
 import dj_database_url
 
 SECRET_KEY = os.environ.get('QUESTION_SECRET_KEY')
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -106,7 +105,8 @@ USE_TZ = True
 
 
 # Update database configuration with $DATABASE_URL.
-db_from_env = dj_database_url.config(conn_max_age=500)
+path_url = os.environ.get('DATABASE_URL')
+db_from_env = dj_database_url.config(default=path_url, conn_max_age=500)
 DATABASES = {'default': {}}
 DATABASES['default'].update(db_from_env)
 
@@ -132,9 +132,10 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
-
 REGISTRATION_OPEN = True
 ACCOUNT_ACTIVATION_DAYS = 7
-REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
-LOGIN_REDIRECT_URL = '/question'  # The page you want users to arrive at after they successful log in
+REGISTRATION_AUTO_LOGIN = True
+# If True, the user will be automatically logged in.
+LOGIN_REDIRECT_URL = '/question'
+# The page you want users to arrive at after they successful log in
 LOGIN_URL = '/login'

@@ -3,31 +3,48 @@
 {% load staticfiles %}
 {%block content%}
 <html>
-  <head>
-
-    <link rel="stylesheet" type="text/css" href="../../static/css/style.css"></link>
-    <meta charset="utf-8">
-    <title>QuestionBoard</title>
-  </head>
-  <body>
-    <form id="questionform">
-      <h2>New Question</h2>
-      <label for="">Question:</label>
-        <input id='question' type="text" name="question" value=""><br>
-      <label for="">Description:</label><br>
-        <textarea id='textarea' type="text" name="description" value=""></textarea><br>
-      <input id="button" type="submit" value="Submit Question">
-    </form>
-
-    <form>
-      <h2>Answers</h2>
-          <!-- need to display question details here -->
-          <p>question and existing answers details go here</p>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../static/css/normalize.css"></link>
+        <link rel="stylesheet" type="text/css" href="../../static/css/style.css"></link>
+        <meta charset="utf-8">
+        <title>QuestionBoard</title>
+    </head>
+    <body>
+        <header>
+            <a href='' id='newquestion'>
+            <h1>Questions Board</h1>
+            <h3>Helping people with stuff since 2016</h3>
+            </a>
+        </header>
+    <div id='wrapper'>
+        <form id='list'>
+            <h2>List of questions</h2>
+            <nav>
+                <ul>
+                    <li><a href='/question/'>Question 1</a></li>
+                    <li><a href='/question/'>Question 2</a></li>
+                    <li><a href='/question/'>Question 3</a></li>
+                </ul>
+            </nav>
+        </form>
+        </br>
+        <form id="questionform">
+            <label for="">Question:</label>
+            <input id='question' type="text" name="question" value=""><br>
+            <label for="">Description:</label><br>
+            <textarea id='textarea' type="text" name="description" value=""></textarea><br>
+            <input id="button" type="submit" value="Submit Question">
+        </form>
+    </div>
+    <!-- <form>
+        <h2>Answers</h2>
+        <!- - need to display question details here - -
+        <p>question and existing answers details go here</p>
         <h3>New Answer</h3>
         <label for="">Answer:</label><br>
-          <textarea id='textarea' type="text" name="answer" value=""></textarea><br>
+        <textarea id='textarea' type="text" name="answer" value=""></textarea><br>
         <input id="button" type="submit" value="Submit Answer">
-    </form>
+    </form> -->
 
 
     <form id='list'>
@@ -39,8 +56,9 @@
 
 
 
+
     <script src="static/js/jquery-2.2.3.js"></script>
     <script src="static/js/main.js"></script>
-  </body>
+    </body>
 </html>
 {% endblock %}
