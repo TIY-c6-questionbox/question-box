@@ -10,13 +10,14 @@ function for_function(question) {
         console.log(question);
         var $li = $('<li>');
         $li.text(question.title);
-        $li.appendTo($questions);
+        $li.appendTo($question);
 }
 
 var $questionform = $('#questionform');
 var $question = $('#question');
 var $textarea = $('#textarea');
 var $answertext = $('#answertext');
+var $questionlist = $('#list');
 
 $questionform.submit(function() {
   console.log('Form submitted!');
@@ -36,14 +37,24 @@ $questionform.submit(function() {
     success: function(newQuestion) {
       console.log(newQuestion)
       var $li = $('<li>');
-      $li.text(newQuestion.name)
+      $li.text(newQuestion.title)
       $li.appendTo($questionform);
-    }
+      $li.appendTo($questionlist)
+    },
   });
 
   return false;
 });
 
+
+$.get('/question/', function(questionlist){
+  questionlist.results.forEach( function(question) {
+    console.log('question', question);
+    var $li = $('<li>');
+    $li.text(question.title);
+	  $li.appendTo($questionlist);
+})
+})
 
 function getQuestions() {
     $.get('/question/', function(questions) {
