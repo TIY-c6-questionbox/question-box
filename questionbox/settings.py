@@ -105,7 +105,8 @@ USE_TZ = True
 
 
 # Update database configuration with $DATABASE_URL.
-db_from_env = dj_database_url.config(conn_max_age=500)
+path_url = os.environ.get('QUESTION_DATABASE_URL')
+db_from_env = dj_database_url.config(default=path_url, conn_max_age=500)
 DATABASES = {'default': {}}
 DATABASES['default'].update(db_from_env)
 
