@@ -1,9 +1,57 @@
+/****************************
+GENERAL
+****************************/
+
+* {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
 body {
-  background-color:silver;
+    font-family: 'Helvetica', sans-serif;
+    height: 100%;
+}
+
+.push {
+    height: 4em;
+}
+
+#wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -5em;
+    max-width: 940px;
+    padding: 0 5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+h3 {
+    margin: 0 0 1em 0;
+}
+
+
+
+/****************************
+PAGE: INDEX
+****************************/
+
+#question {
+  width: 472px;
 }
 
 #textarea {
-  width: 250px;
+  width: 550px;
   height: 150px;
 }
 
@@ -12,8 +60,84 @@ input{
   margin: 5px;
 }
 
-#list{
+/*#list{
   position: absolute;
   top: 30px;
   right: 50px;
+}*/
+
+
+
+/****************************
+NAVIGATION
+****************************/
+
+nav {
+    text-align: center;
+    padding: 10px 0;
+    margin: 20px 0 0;
 }
+
+nav ul {
+    list-style: none;
+    margin: 0 10px;
+    padding: 0;
+}
+
+nav li {
+    display: block;
+    padding: 5px 5px;
+}
+
+nav a {
+    font-weight: 800;
+    padding: 5px 10px;
+}
+
+
+/****************************
+COLORS
+****************************/
+
+/* site body dark blue-gray, text light gray */
+body {
+    background-color: #252839;
+    color: #b5b5b7;
+}
+
+/* medium gray header, yellow boarder */
+header {
+    background: #677077;
+    border-color: #f2b632;
+}
+
+/* off white nav background on mobile */
+nav {
+    background: #feffff;
+}
+
+/* slate logo text */
+h1, h2 {
+    color: #312c32;
+}
+
+/* medium yellow links */
+a {
+    color: #D7AB2E;
+}
+
+/* light yellow nav links */
+nav a, nav a:visited {
+    color: #FFDD7D;
+}
+
+/* medium red selected nav links */
+nav a.selected, nav a:hover {
+    color: #AB3B15;
+}
+
+
+/*#252839
+#677077
+#b5b5b7
+#f2b632*/
