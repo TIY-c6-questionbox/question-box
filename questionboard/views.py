@@ -10,6 +10,13 @@ def index(request):
     context = {'questions': question_list}
     return render(request, 'index.html', context)
 
+def question(request, question_id):
+    question = Question.objects.get(id=question_id)
+    answers_list = Answer.objects.filter(question_id=question_id)
+    context = {'question': question, 'question_id': question_id, 'answers_list': answers_list}
+    return render(request, 'question.html', context)
+
+
 
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all().order_by('-created')

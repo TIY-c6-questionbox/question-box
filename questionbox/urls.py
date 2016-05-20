@@ -6,9 +6,9 @@ from django.contrib.auth import views as auth_views
 
 
 router = DefaultRouter()
-router.register(r'question', views.QuestionViewSet)
-router.register(r'answer', views.AnswerViewSet)
-router.register(r'users', views.UserViewSet)
+router.register(r'api/question', views.QuestionViewSet)
+router.register(r'api/answer', views.AnswerViewSet)
+router.register(r'api/users', views.UserViewSet)
 
 urlpatterns = [
     # Examples:
@@ -17,4 +17,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(router.urls)),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^questions/(?P<question_id>[0-9]+)/$', views.question, name='questions'),
+
 ]

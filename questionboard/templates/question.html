@@ -1,0 +1,37 @@
+{% extends "questionbox/base.html" %}
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% block content %}
+
+<h3>  Question:</h3>
+<p>
+
+  {{ question.title }}
+</p>
+
+<h3>  Question Description: </h3>
+<p>
+
+{{ question.description }}
+</p>
+
+
+
+<h3>Answers: </h3>
+{% if answers_list %}
+    <ol>
+    {% for answer in answer_list %}
+        <li>{{ answer.text }}{{ answer.owner_id }} </li>
+    {% endfor %}
+    </ol>
+{% else %}
+    <p>Ain't no answers here</p>
+{% endif %}
+
+
+
+
+
+
+{% endblock %}

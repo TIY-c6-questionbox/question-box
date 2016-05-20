@@ -1,4 +1,4 @@
-$.get('/question/', function(questions){
+$.get('api/question/', function(questions){
     if (questions.results != undefined) {
         questions.results.forEach(for_function);
     }
@@ -23,7 +23,7 @@ $questionform.submit(function() {
 
   $.ajax({
     method: 'POST',
-    url: '/question/',
+    url: 'api/question/',
     beforeSend: function(request) {
         var token = document.cookie.replace('csrftoken=', '')
         request.setRequestHeader('X-CSRFToken', token)
@@ -47,7 +47,7 @@ $questionform.submit(function() {
 
 // <li><a href='/question/'>Question 1</a></li>
 
-$.get('/question/', function(questionlist){
+$.get('api/question/', function(questionlist){
   questionlist.results.forEach( function(question) {
     console.log('question', question)
     var $li = $('<li>')
@@ -58,7 +58,7 @@ $.get('/question/', function(questionlist){
 })
 
 function getQuestions() {
-    $.get('/question/', function(questions) {
+    $.get('api/question/', function(questions) {
         var results = questions.results;
         var question = null;
 
