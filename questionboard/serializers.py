@@ -20,11 +20,11 @@ class AnswerSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    # questions = serializers.PrimaryKeyRelatedField(
+    # question = serializers.PrimaryKeyRelatedField(
     #         many=True, queryset=Question.objects.all())
     # answers = serializers.PrimaryKeyRelatedField(
     #         many=True, queryset=Answer.objects.all())
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'questions', 'answers')
+        fields = ('id', 'username')

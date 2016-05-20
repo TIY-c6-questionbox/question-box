@@ -1,5 +1,3 @@
-// var $questions = $('#questions');
-
 $.get('/question/', function(questions){
     if (questions.results != undefined) {
         questions.results.forEach(for_function);
@@ -36,9 +34,10 @@ $questionform.submit(function() {
     },
     success: function(newQuestion) {
       console.log(newQuestion)
-      var $li = $('<li>');
-      $li.text(newQuestion.title)
-      $li.appendTo($questionform);
+      var $li = $('<li>')
+      link = '<a href="' + newQuestion.url + '">' + newQuestion.title + '</a>'
+      $li.append(link)
+      $li.appendTo($questionform)
       $li.appendTo($questionlist)
     },
   });
@@ -46,13 +45,15 @@ $questionform.submit(function() {
   return false;
 });
 
+// <li><a href='/question/'>Question 1</a></li>
 
 $.get('/question/', function(questionlist){
   questionlist.results.forEach( function(question) {
-    console.log('question', question);
-    var $li = $('<li>');
-    $li.text(question.title);
-	  $li.appendTo($questionlist);
+    console.log('question', question)
+    var $li = $('<li>')
+    link = '<a href="' + question.url + '">' + question.title + '</a>'
+    $li.append(link)
+	$li.appendTo($questionlist)
 })
 })
 
@@ -99,23 +100,23 @@ function getQuestions() {
 //     })
 //
 // }
-
-
-function createCreateQuestionForm() {
-    var createQuestionForm = $('<form>')
-
-    $('<label for="title">Title</label><br>').appendTo(form)
-    var title = $('<input type="text" id="title"><br>').appendTo(form)
-
-    $('<label for="title">Title</label><br>').appendTo(form)
-    var title = $('<input type="text" id="title"><br>').appendTo(form)
-
-
-    $('<input type="submit" value="Create Question">').appendTo(form)
-
-    createQuestionForm.submit(function() {
-        console.log('Question created')
-        return false;
-    })
-    createQuestionForm.appendTo(document.body)
-}
+//
+//
+// function createCreateQuestionForm() {
+//     var createQuestionForm = $('<form>')
+//
+//     $('<label for="title">Title</label><br>').appendTo(form)
+//     var title = $('<input type="text" id="title"><br>').appendTo(form)
+//
+//     $('<label for="title">Title</label><br>').appendTo(form)
+//     var title = $('<input type="text" id="title"><br>').appendTo(form)
+//
+//
+//     $('<input type="submit" value="Create Question">').appendTo(form)
+//
+//     createQuestionForm.submit(function() {
+//         console.log('Question created')
+//         return false;
+//     })
+//     createQuestionForm.appendTo(document.body)
+// }
