@@ -5,7 +5,6 @@ $.get('api/question/', function(questions){
 })
 
 function for_function(question) {
-        console.log(question);
         var $li = $('<li>');
         $li.text(question.title);
         $li.appendTo($question);
@@ -33,9 +32,12 @@ $questionform.submit(function() {
       description: $textarea.val(),
     },
     success: function(newQuestion) {
-      console.log(newQuestion)
+      console.log('test')
       var $li = $('<li>')
-      link = '<a href="' + newQuestion.url + '">' + newQuestion.title + '</a>'
+      var pattern = new RegExp("question/[0-9]+")
+      var tag = pattern.exec(newQuestion.url)
+    //   link = '<a href="' + tag + '">' + newQuestion.title + '</a>'
+      link = '<a href="' + tag[0] + '">' + newQuestion.title + '</a>'
       $li.append(link)
       $li.appendTo($questionform)
       $li.appendTo($questionlist)
@@ -45,15 +47,17 @@ $questionform.submit(function() {
   return false;
 });
 
+
 // <li><a href='/question/'>Question 1</a></li>
 
 $.get('api/question/', function(questionlist){
   questionlist.results.forEach( function(question) {
-    console.log('question', question)
-    var $li = $('<li>')
-    link = '<a href="' + question.url + '">' + question.title + '</a>'
-    $li.append(link)
-	$li.appendTo($questionlist)
+  var $li = $('<li>')
+  var pattern = new RegExp("question/[0-9]+")
+  var tag = pattern.exec(question.url)
+  link = '<a href="' + tag[0] + '">' + question.title + '</a>'
+  $li.append(link)
+  $li.appendTo($questionlist)
 })
 })
 
