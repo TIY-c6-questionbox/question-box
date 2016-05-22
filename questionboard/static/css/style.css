@@ -28,8 +28,8 @@ body {
 header {
     border-radius: 10%;
     max-width: 940px;
-    padding: 5% 5% 5% 5%;
-    margin: 0 50px -5em 25px;
+    padding: 10% 10% 10% 10%;
+    margin: 0 50px 0 50px;
 }
 
 .push {
