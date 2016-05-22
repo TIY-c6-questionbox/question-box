@@ -112,10 +112,10 @@ nav a {
 COLORS
 ****************************/
 
-/* site body blue, text white */
+/* site body blue, text bronze */
 body {
     background-color: #3B5998;
-    color: #FFF;
+    color: #B6A754;
 }
 
 /* blue header, light blue boarder */
@@ -129,14 +129,14 @@ nav {
     background: #293E6A;
 }
 
-/* white logo text */
+/* bronze logo text */
 h1, h2 {
-    color: #FFF;
+    color: #B6A754;
 }
 
-/* white links */
+/* bronze links */
 a {
-    color: #FFF;
+    color: #B6A754;
 }
 
 /* bronze nav links */
