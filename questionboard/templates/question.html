@@ -1,9 +1,14 @@
 {% extends "questionbox/base.html" %}
 <!DOCTYPE html>
-
-{% load staticfiles %}
+{% load static from staticfiles %}
 {% block content %}
 <html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static '/static/css/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/static/css/style.css' %}" />
+    <meta charset="utf-8">
+    <title>QuestionBoard</title>
+<head>
 <body>
 <h3>  Question:</h3>
 <p>
@@ -37,10 +42,10 @@
         <input type="hidden" id="user" value= {{ request.user.id }}>
         <input id="button" type="submit" value="Submit Answer">
     </form>
+    <script src="{% static '/static/js/jquery-2.2.3.js' %}"></script>
+    <script src="{% static '/static/js/main.js' %}"></script>
 
-    <script src="/../../static/js/jquery-2.2.3.js"></script>
-    <script src="/../../static/js/main.js"></script>
-  </body>
+    </body>
 </html>
 
 
