@@ -4,6 +4,8 @@
 {% load staticfiles %}
 {% block content %}
 <html>
+<link rel="stylesheet" type="text/css" href="/../../static/css/normalize.css"></link>
+<link rel="stylesheet" type="text/css" href="/../../static/css/style.css"></link>
 <body>
 <h3>  Question:</h3>
 <p>
@@ -19,17 +21,14 @@
 
 
 
-<h3>Answers: </h3>
-{% if answers_list %}
-    <ol>
-    {% for answer in answers_list %}
-        <li>{{ answer.text }}  User: {{ answer.owner_id }} {{ request.user }} {{ question }} {{ request.user.url }}</li>
-    {% endfor %}
-    </ol>
-{% else %}
-    <p>Ain't no answers here</p>
-{% endif %}
 
+<div id='wrapper'>
+    <nav>
+        <form id='answerlist'>
+            <h2>List of Answers</h2>
+        </form>
+    <nav>
+    <br>
     <form id="answerform">
         <label for="">Add Answer:</label><br>
         <textarea id='answertext' type="text" name="answer" value=""></textarea><br>
@@ -37,7 +36,7 @@
         <input type="hidden" id="user" value= {{ request.user.id }}>
         <input id="button" type="submit" value="Submit Answer">
     </form>
-
+</div>
     <script src="/../../static/js/jquery-2.2.3.js"></script>
     <script src="/../../static/js/main.js"></script>
   </body>

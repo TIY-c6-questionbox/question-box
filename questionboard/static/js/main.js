@@ -1,4 +1,4 @@
-$.get('api/question/', function(questions){
+$.get('/../../api/question/', function(questions){
     if (questions.results != undefined) {
         questions.results.forEach(for_function);
     }
@@ -22,7 +22,7 @@ $questionform.submit(function() {
 
   $.ajax({
     method: 'POST',
-    url: 'api/question/',
+    url: '/../../api/question/',
     beforeSend: function(request) {
         var token = document.cookie.replace('csrftoken=', '')
         request.setRequestHeader('X-CSRFToken', token)
@@ -50,7 +50,7 @@ $questionform.submit(function() {
 
 // <li><a href='/question/'>Question 1</a></li>
 
-$.get('api/question/', function(questionlist){
+$.get('/../../api/question/', function(questionlist){
   questionlist.results.forEach( function(question) {
   var $li = $('<li>')
   var pattern = new RegExp("question/[0-9]+")
@@ -87,26 +87,42 @@ function getQuestions() {
     })
 }
 
+$.get('/../../api/answer/', function(answers){
+    if (answers.results != undefined) {
+        answers.results.forEach(for_function);
+    }
+})
+
+function for_function(answertext) {
+        var $li = $('<li>');
+        $li.text(answertext.text);
+
+        if(answertext.question == ('http://localhost:5000/api/question/'+ $questionobj.val() + '/')){
+        $li.appendTo($answerlist);
+      }
+}
+
 
 
 var $answerform = $('#answerform');
 var $answertext = $('#answertext');
 var $questionobj = $('#questionobj');
 var $user = $('#user');
+var $answerlist = $('#answerlist');
+// var $questionurl = $('http://localhost:5000/api/question/'+ $questionobj.val() + '/');
+
+
 
 $answerform.submit(function() {
-  console.log($answerform);
-  console.log($answertext.val());
-  console.log($questionobj.val());
-  console.log($user.val());
-  console.log('api/users/'+ $user.val() + '/');
+  console.log('form submitted');
+
 
 
 
 
 $.ajax({
   method: 'POST',
-  url: 'api/answer/',
+  url: '/../../api/answer/',
   beforeSend: function(request) {
       var token = document.cookie.replace('csrftoken=', '')
       request.setRequestHeader('X-CSRFToken', token)
@@ -115,8 +131,8 @@ $.ajax({
   data: {
     text: $answertext.val(),
     score: 0,
-    question: 'api/question/'+ $questionobj.val() + '/',
-    owner: 'api/users/' + $user.val() + '/',
+    question: 'http://localhost:5000/api/question/'+ $questionobj.val() + '/',
+    owner: 'http://localhost:5000/api/users/' + $user.val() + '/',
   },
 
   success: function(newAnswer) {
@@ -125,9 +141,6 @@ $.ajax({
 });
   return false;
 });
-
-
-
 
 
 

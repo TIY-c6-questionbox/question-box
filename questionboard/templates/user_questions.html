@@ -6,28 +6,24 @@
 
 <html>
     <head>
-
+      <link rel="stylesheet" type="text/css" href="/../../static/css/normalize.css"></link>
+      <link rel="stylesheet" type="text/css" href="/../../static/css/style.css"></link>
+    </head>
       <div id='wrapper'>
           <nav>
-              <form id='list'>
-                  <h2>List of questions</h2>
+              <form id='userquestlist'>
+                <input type="hidden" id="questionobj" value= {{ question.id }}>
+                <input type="hidden" id="user" value= {{ request.user.id }}>
+                  <h2>Your Questions</h2>
               </form>
           <nav>
           <br>
-          <form id="questionform">
-              <label for="">Question:</label>
-              <input id='question' type="text" name="question" value=""><br>
-              <label for="">Description:</label><br>
-              <textarea id='textarea' type="text" name="description" value=""></textarea><br>
-              <input id="button" type="submit" value="Submit Question">
-          </form>
+          
       </div>
 
 
-
-<script src="static/js/jquery-2.2.3.js"></script>
-<script src="static/js/main.js"></script>
-
+      <script src="/../../static/js/jquery-2.2.3.js"></script>
+      <script src="/../../static/js/userQuestions.js"></script>
 
 </body>
 </html>
