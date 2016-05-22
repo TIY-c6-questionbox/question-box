@@ -16,10 +16,10 @@ body {
 }
 
 .col-sm-3.col-md-2.sidebar {
-        padding: 0 100px 0 0;
+        padding: 0 50px 0 0;
 }
 
-.container-fluid {
+.col-sm-9.col-sm-offet-3.col-md-10.col-md-offset-2.main {
     margin-top: 50px;
 }
 
