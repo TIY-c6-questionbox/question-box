@@ -16,11 +16,13 @@ body {
 }
 
 .col-sm-3.col-md-2.sidebar {
-        padding: 0 50px 0 0;
+    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .col-sm-9.col-sm-offet-3.col-md-10.col-md-offset-2.main {
     margin-top: 50px;
+    padding-top: 50px;
 }
 
 header {
@@ -28,6 +30,7 @@ header {
     max-width: 940px;
     padding: 0 5%;
     padding: 10px 100px 10px 10px;
+    margin-top: 50px;
 }
 
 .push {
