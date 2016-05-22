@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(router.urls)),
     url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^questions/(?P<question_id>[0-9]+)/$', views.question, name='questions'),
+    url(r'^question/$', views.user_question, name='user_questions'),
+    url(r'^question/(?P<question_id>[0-9]+)/$', views.question, name='questions'),
 
 ]

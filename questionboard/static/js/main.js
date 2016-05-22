@@ -1,4 +1,4 @@
-$.get('api/question/', function(questions){
+$.get('/../../api/question/', function(questions){
     if (questions.results != undefined) {
         questions.results.forEach(for_function);
     }
@@ -22,7 +22,7 @@ $questionform.submit(function() {
 
   $.ajax({
     method: 'POST',
-    url: 'api/question/',
+    url: '/../../api/question/',
     beforeSend: function(request) {
         var token = document.cookie.replace('csrftoken=', '')
         request.setRequestHeader('X-CSRFToken', token)
@@ -50,7 +50,7 @@ $questionform.submit(function() {
 
 // <li><a href='/question/'>Question 1</a></li>
 
-$.get('api/question/', function(questionlist){
+$.get('/../../api/question/', function(questionlist){
   questionlist.results.forEach( function(question) {
   var $li = $('<li>')
   var pattern = new RegExp("question/[0-9]+")
@@ -86,6 +86,50 @@ function getQuestions() {
         }
     })
 }
+
+
+
+var $answerform = $('#answerform');
+var $answertext = $('#answertext');
+var $questionobj = $('#questionobj');
+var $user = $('#user');
+
+$answerform.submit(function() {
+  console.log($answerform);
+  console.log($answertext.val());
+  console.log($questionobj.val());
+  console.log($user.val());
+  console.log('http://localhost:5000/api/users/'+ $user.val() + '/');
+
+
+
+
+$.ajax({
+  method: 'POST',
+  url: '/../../api/answer/',
+  beforeSend: function(request) {
+      var token = document.cookie.replace('csrftoken=', '')
+      request.setRequestHeader('X-CSRFToken', token)
+
+  },
+  data: {
+    text: $answertext.val(),
+    score: 0,
+    question: 'http://localhost:5000/api/question/'+ $questionobj.val() + '/',
+    owner: 'http://localhost:5000/api/users/' + $user.val() + '/',
+  },
+
+  success: function(newAnswer) {
+    console.log('Answer Posted')
+  }
+});
+  return false;
+});
+
+
+
+
+
 
 
 // function deleteQuestion(questionID) {

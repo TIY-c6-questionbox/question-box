@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets  # permissions
 from .models import Question, Answer
 from .serializers import QuestionSerializer, UserSerializer, AnswerSerializer
+import requests
 
 
 def index(request):
@@ -11,10 +12,17 @@ def index(request):
     return render(request, 'index.html', context)
 
 def question(request, question_id):
+    user = request.user
     question = Question.objects.get(id=question_id)
     answers_list = Answer.objects.filter(question_id=question_id)
-    context = {'question': question, 'question_id': question_id, 'answers_list': answers_list}
+    context = {'question': question, 'question_id': question_id,
+    'answers_list': answers_list, 'user': user}
     return render(request, 'question.html', context)
+
+def user_question(request):
+    return render(request, 'user_questions.html')
+
+
 
 
 
