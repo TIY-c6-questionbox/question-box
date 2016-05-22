@@ -45,9 +45,15 @@ h3 {
 }
 
 .button {
-    background-color: #555555;
+    background-color: #555555; /* dark gray */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
-
 
 /****************************
 PAGE: INDEX
