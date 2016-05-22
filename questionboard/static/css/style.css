@@ -21,7 +21,7 @@ body {
 }
 
 .col-sm-9.col-sm-offet-3.col-md-10.col-md-offset-2.main {
-    margin-top: 50px;
+    margin-top: 75px;
     padding-top: 50px;
 }
 
@@ -42,7 +42,7 @@ header {
     height: auto !important;
     height: 100%;
     margin: 0 auto -5em;
-    max-width: 940px;
+    max-width: 1500px;
     padding: 2px 15% 2px;
 }
 

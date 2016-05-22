@@ -1,45 +1,48 @@
 {% extends "questionbox/base.html" %}
 <!DOCTYPE html>
-
-{% load staticfiles %}
+{% load static from staticfiles %}
 {% block content %}
 <html>
-<link rel="stylesheet" type="text/css" href="/../../static/css/normalize.css"></link>
-<link rel="stylesheet" type="text/css" href="/../../static/css/style.css"></link>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static '/static/css/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/static/css/style.css' %}" />
+    <meta charset="utf-8">
+    <title>QuestionBoard</title>
+</head>
+
 <body>
-<h3>  Question:</h3>
-<p>
-
-  {{ question.title }}
-</p>
-
-<h3>  Question Description: </h3>
-<p>
-
-{{ question.description }}
-</p>
 
 
 
 
 <div id='wrapper'>
+  <h1>  Question:</h1>
+
+  <h2>{{ question.title }} </h2>
+    <p>{{ question.description }}</p>
+
+
     <nav>
         <form id='answerlist'>
-            <h2>List of Answers</h2>
+
+            <h2>Answers</h2>
         </form>
     <nav>
     <br>
     <form id="answerform">
+        {% csrf_token %}
         <label for="">Add Answer:</label><br>
         <textarea id='answertext' type="text" name="answer" value=""></textarea><br>
         <input type="hidden" id="questionobj" value= {{ question.id }}>
         <input type="hidden" id="user" value= {{ request.user.id }}>
         <input id="button" type="submit" value="Submit Answer">
     </form>
-</div>
-    <script src="/../../static/js/jquery-2.2.3.js"></script>
-    <script src="/../../static/js/main.js"></script>
-  </body>
+
+    <script src="{% static '/static/js/jquery-2.2.3.js' %}"></script>
+
+
+    </body>
 </html>
 
 
