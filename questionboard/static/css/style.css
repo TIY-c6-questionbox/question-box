@@ -19,6 +19,10 @@ body {
         padding: 0 100px 0 0;
 }
 
+.container-fluid {
+    margin-top: 50px;
+}
+
 header {
     border-radius: 10%;
     max-width: 940px;
