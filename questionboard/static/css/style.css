@@ -26,10 +26,10 @@ body {
 }
 
 header {
-    border: 10px 10px 10px 10px;
-    border-radius: 10%;
+    border-radius: 20px;
     max-width: 940px;
-    margin-top: 50px;
+    margin: 50px auto 25px;
+    padding: 2px 15px 2px;
 }
 
 .push {
@@ -37,13 +37,13 @@ header {
 }
 
 #wrapper {
+    border-radius: 20px;
     min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto -5em;
     max-width: 940px;
-    border: 10px 10px 10px 10px;
-    padding: 0 5%;
+    padding: 2px 15% 2px;
 }
 
 a {
