@@ -99,47 +99,48 @@ nav a {
 COLORS
 ****************************/
 
-/* site body dark blue, text white */
+/* site body blue, text white */
 body {
-    background-color: #FFF;
+    background-color: #3B5998;
     color: #FFF;
 }
 
-/* bluish green header, medium blue boarder */
+/* blue header, light blue boarder */
 header {
-    background: #2F23FF;
-    border-color: #2F23FF;
+    background: #293E6A;
+    border-color: #639BF1;
 }
 
-/* pale blue nav background on mobile */
+/* dark blue nav background on mobile */
 nav {
-    background: #4873E8;
+    background: #293E6A;
 }
 
-/* slate logo text */
+/* white logo text */
 h1, h2 {
-    color: #05FFAE;
+    color: #FFF;
 }
 
-/* medium yellow links */
+/* white links */
 a {
-    color: #05FFAE;
+    color: #FFF;
 }
 
-/* light yellow nav links */
+/* bronze nav links */
 nav a, nav a:visited {
-    color: #05FFAE;
+    color: #B6A754;
 }
 
-/* medium red selected nav links */
+/* bronze nav links */
 nav a.selected, nav a:hover {
-    color: #05FFAE;
+    color: #B6A754;
 }
 
 
-/*#2F23FF   blue
-#4873E8     pale blue
-#2F23FF     sky blue
-#1BE0E8     bluish green
-#05FFAE     pale green
+/*
+#293E6A     dark blue
+#3B5998     blue
+#639BF1     light blue
+#77BA9B     pale green
+#B6A754     bronze
 */
